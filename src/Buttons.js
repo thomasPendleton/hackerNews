@@ -2,10 +2,10 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 const Buttons = () => {
-  const data = useGlobalContext();
-  console.log(data)
+  const data = useGlobalContext()
   
-  return <h2>button container</h2>
+  
+  return <h2>prev/next button</h2>
 }
 
 export default Buttons
