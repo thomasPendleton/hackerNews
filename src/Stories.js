@@ -4,6 +4,7 @@ import { useGlobalContext } from './context'
 
 const Stories = () => {
   const { isLoading, hits, nbPages, removeStory } = useGlobalContext();
+   console.log(nbPages)
    
   if (isLoading) {
     return <div className="loading"> </div>;
