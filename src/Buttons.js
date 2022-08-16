@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 const Buttons = () => {
-  const data = useGlobalContext()
+  // const { query } = useGlobalContext();
   
   
   return <h2>prev/next button</h2>
