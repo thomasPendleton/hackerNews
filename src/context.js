@@ -38,10 +38,8 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  const handleSearch = (e) => { 
-    e.preventDefault()
-    console.log(e.target.value)
-    dispatch({type:HANDLE_SEARCH, payload: e.target.value})
+  const handleSearch = (query) => { 
+       dispatch({type:HANDLE_SEARCH, payload: query})
    }
 
 
@@ -56,7 +54,7 @@ const AppProvider = ({ children }) => {
     return () => {
       // second
     }
-  }, [])
+  }, [state.query])
 
   return (
     <AppContext.Provider value={{ ...state, removeStory, handleSearch }}>{children}</AppContext.Provider>
