@@ -39,7 +39,8 @@ const reducer = (state, action) => {
             prevPage = state.nbPages - 1
           }
           return {...state, page: prevPage }
-        }
+        };
+        break
     default:
       throw new Error(`no matching ${action.type} action type`);
   }
