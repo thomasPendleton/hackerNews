@@ -3,9 +3,7 @@ import React from 'react'
 import { useGlobalContext } from './context'
 
 const Stories = () => {
-  const { isLoading, hits, nbPages, removeStory } = useGlobalContext();
-   console.log(nbPages)
-   
+  const { isLoading, hits, removeStory } = useGlobalContext();
   if (isLoading) {
     return <div className="loading"> </div>;
   }

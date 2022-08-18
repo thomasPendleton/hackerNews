@@ -14,10 +14,10 @@ const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?'
 const initialState = {
   isLoading: true,
   hits: [],
-  query: "react",
+  query: "",
   page: 0,
   nbPages: 0,
-}
+};
 
 const AppContext = React.createContext()
 
@@ -46,19 +46,29 @@ const AppProvider = ({ children }) => {
   const removeStory = (id) => { 
     dispatch({type: REMOVE_STORY, payload: id})
   }
+  
+
+  const handlePage = (value) => {
+    dispatch({ type: HANDLE_PAGE, payload: value });
+  };
+
 
   useEffect(() => {
     //add additional queries
-    fetchNews(`${API_ENDPOINT}query=${state.query}&page=${state.page}`)
+    fetchNews(`${API_ENDPOINT}query=${state.query}&page=${state.page}`);
 
     return () => {
       // second
-    }
-  }, [state.query])
+    };
+  }, [state.query, state.page]);
 
   return (
-    <AppContext.Provider value={{ ...state, removeStory, handleSearch }}>{children}</AppContext.Provider>
-  )
+    <AppContext.Provider
+      value={{ ...state, removeStory, handleSearch, handlePage }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 }
 // make sure use
 export const useGlobalContext = () => {
